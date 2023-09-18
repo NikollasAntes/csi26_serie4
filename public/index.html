@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação Node.js</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="getDataButton">Obter Dados JSON</button>
+    <p id="jsonData"></p>
+    <script>
+        $(document).ready(function () {
+            $('#getDataButton').click(function () {
+                $.get('/get-data', function (data) {
+                    $('#jsonData').text(data.message + ' Itens: ' + data.items.join(', '));
+                });
+            });
+        });
+    </script>
+</body>
+</html>
